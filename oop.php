@@ -7,12 +7,20 @@ class claculation
     {
         return $this->a + $this->b;
     }
+    function sub(){
+        return $this->a - $this->b;
+    }
 }
 
 $b = new claculation();
 $b->a = 1000;
 $b->b = 20;
 echo $b->sum();
+echo "<br>";
+$a = new claculation();
+$a->a = 1000;
+$a->a = 20;
+echo $b->sub(). "<br>";
 
 class myDetails
 {
@@ -39,7 +47,37 @@ class myDetails
 $nirob = new myDetails("Nur Alam Nirob", "Shajahan Ali", "Nasima Begum", "24", "Bangladesh Rangpur");
 $saba = new myDetails("Masrufa Jahan Saba", "Shajahan Ali", "Nasima Begum", "24", "Bangladesh Rangpur");
 
+
+// public private protected 
+
+class Fund{
+    public $fund;// প্রাইভেট শুধু ক্লাস এর ভিতরে একসেস করতে পারবে ।
+    function __construct($initialFund=0)
+    {
+        $this->fund=$initialFund;
+    }
+    public function AddFund($money){
+        $this->fund +=$money;
+    }
+    public function DeductFund($money){
+        $this->fund -=$money;
+    }
+    public function GetTotal(){
+        echo "Total Fund Is {$this->fund} <br>";
+    }
+}
+
+$ourfund=new Fund(100);
+$ourfund->GetTotal();
+$ourfund->AddFund(50);
+$ourfund->DeductFund(10);
+$ourfund->GetTotal();
+
 ?>
+
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -61,6 +99,7 @@ $saba = new myDetails("Masrufa Jahan Saba", "Shajahan Ali", "Nasima Begum", "24"
 
         <h2><?php echo $nirob->Details(); ?></h2>
         <h2><?php echo $saba->Details(); ?></h2>
+
 
 
     </main>
