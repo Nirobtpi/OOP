@@ -29,3 +29,25 @@ if ($obj instanceof A) {
 } else {
     $obj->wealcome();
 }
+echo "<br>";
+echo "<br>";
+
+class Person{
+    public $name;
+    public $age;
+
+    function __construct($name,$age){
+        $this->name=$name;
+        $this->age=$age;
+    }
+    public function get_details(){
+        echo "My Name Is {$this->name}. I am {$this->age} years old";
+    }
+}
+
+$nirob=new Person("Nirob",20);
+$nirob->name="Nur Alam Nirob";
+$nirob->get_details();
+echo "<br>";
+$nirob=new Person("Saba",7);
+$nirob->get_details();
