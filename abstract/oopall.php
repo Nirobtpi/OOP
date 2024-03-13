@@ -1,69 +1,78 @@
-<?php 
+<?php
 
 // create class 
 
-class Person{
+class Person
+{
     public $name; // proparty 
 
-    function set_name($name){
-        return $this->name=$name;
+    function set_name($name)
+    {
+        return $this->name = $name;
     }
-    function get_name(){
+    function get_name()
+    {
         echo $this->name;
     }
-
 }
 
-$name=new Person();
+$name = new Person();
 $name->set_name("Md. Nur Alam Nirob");
 $name->get_name();
 
 // constractor function 
 
-class Name{
+class Name
+{
     public $name;
 
-    function __construct($name){
-        $this->name=$name;
+    function __construct($name)
+    {
+        $this->name = $name;
     }
 
-    function get_name(){
+    function get_name()
+    {
         echo $this->name;
     }
 }
 echo "<br>";
-$nirob=new Name("Saba");
+$nirob = new Name("Saba");
 $nirob->get_name();
 
 // extends class 
-class Ayan extends Name{
-
+class Ayan extends Name
+{
 }
 echo "<br>";
-$ayan=new Ayan("Ayan");
+$ayan = new Ayan("Ayan");
 $ayan->get_name();
 
 // interface class 
 
-interface Vehicle{
+interface Vehicle
+{
+
     public function __construct($name, $capacity, $fuel);
     public function name();
     public function capacity();
     public function fuel();
 }
 
-class Car implements Vehicle{
+class Car implements Vehicle
+{
     public $name;
     public $capacity;
     public $fuel;
 
-    public function __construct($name,$capacity,$fuel)
+    public function __construct($name, $capacity, $fuel)
     {
-        $this->name=$name;
-        $this->capacity=$capacity;
-        $this->fuel=$fuel;
+        $this->name = $name;
+        $this->capacity = $capacity;
+        $this->fuel = $fuel;
     }
-    public function name(){
+    public function name()
+    {
         return "The name of vehicle {$this->name}";
     }
     public function capacity()
@@ -76,7 +85,7 @@ class Car implements Vehicle{
     }
 }
 echo "<br>";
-$newCar= new Car("Vlovo",5,10);
+$newCar = new Car("Vlovo", 5, 10);
 echo $newCar->name();
 echo "<br>";
 echo $newCar->capacity();
@@ -84,15 +93,17 @@ echo "<br>";
 echo $newCar->fuel();
 echo "<br>";
 
-class Saba extends Name{
-
+class Saba extends Name
+{
 }
-$saba=new Saba("Saba");
+$saba = new Saba("Saba");
 $saba->get_name();
 
-abstract class Myname{
-    
-    public function SayHi(){
+abstract class Myname
+{
+
+    public function SayHi()
+    {
         echo "Hello";
     }
     // abstract function __construct();
@@ -100,27 +111,79 @@ abstract class Myname{
     abstract function fName();
 }
 
-class Sara extends Myname{
+class Sara extends Myname
+{
     public $name;
     public $fname;
 
-    function __construct($name,$fname)
+    function __construct($name, $fname)
     {
-        $this->name=$name;
-        $this->fname=$fname;
+        $this->name = $name;
+        $this->fname = $fname;
     }
 
-    function name(){
+    function name()
+    {
         return "Ny name is {$this->name}";
     }
-    function fName(){
+    function fName()
+    {
         return "My father name is {$this->fname}";
     }
 }
-$sara=new Sara("Sara","Sadekul Islam");
+$sara = new Sara("Sara", "Sadekul Islam");
 echo "<br>";
 echo $sara->name();
 echo "<br>";
 echo $sara->fName();
 
-?>
+abstract class School
+{
+    public $name;
+    public $student;
+    public $cityName;
+
+    public function govermentSchool()
+    {
+        echo "This is a govermant College";
+    }
+    abstract function __construct($name, $student, $cityName);
+    abstract function schoolName();
+    abstract function student();
+    abstract function cityName();
+}
+
+class ModelSchool extends School
+{
+    public $name;
+    public $student;
+    public $cityName;
+
+    public function __construct($name, $student, $cityName)
+    {
+        $this->name = $name;
+        $this->student = $student;
+        $this->cityName = $cityName;
+    }
+    public function schoolName()
+    {
+        echo $this->name;
+    }
+    public function student()
+    {
+        echo  $this->student;
+    }
+    public function cityName()
+    {
+        echo   $this->cityName;
+    }
+}
+echo "<br>";
+echo "<br>";
+$modelSchool = new ModelSchool("Model College. ", 200, "DHaka");
+$modelSchool->schoolName();
+$modelSchool->govermentSchool();
+echo "<br>";
+$modelSchool->student();
+echo "<br>";
+$modelSchool->cityName();
